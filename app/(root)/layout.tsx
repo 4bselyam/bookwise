@@ -1,10 +1,19 @@
 import { PropsWithChildren } from 'react'
 import Header from '@/components/Header'
-const Layout = ({ children }: PropsWithChildren) => {
+import { redirect } from 'next/navigation'
+import { auth } from '@/auth'
+
+const Layout = async ({ children }: PropsWithChildren) => {
+	const session = await auth()
+
+	if (!session) {
+		redirect('/sign-in')
+	}
+
 	return (
 		<main className='root-container'>
 			<div className='mx-auto max-w-7xl'>
-				<Header />
+				<Header session={session} />
 				<div className='mt-20 pb-20'>{children}</div>
 			</div>
 		</main>

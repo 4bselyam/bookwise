@@ -4,7 +4,8 @@ import './globals.css'
 
 import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
-
+import { SessionProvider } from 'next-auth/react'
+import { auth } from '@/auth'
 const ibmPlexSans = localFont({
 	src: [
 		{ path: '/fonts/IBMPlexSans-Regular.ttf', weight: '400', style: 'normal' },
@@ -30,13 +31,19 @@ export const metadata: Metadata = {
 	description: 'BookWise is a platform for borrowing and lending books.',
 }
 
-const RootLayout = ({ children }: PropsWithChildren) => (
-	<html lang='en'>
-		<body className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}>
-			{children}
-			<Toaster />
-		</body>
-	</html>
-)
+const RootLayout = async ({ children }: PropsWithChildren) => {
+	const session = await auth()
+
+	return (
+		<html lang='en'>
+			<SessionProvider session={session}>
+				<body className={`${ibmPlexSans.className} ${bebasNeue.variable} antialiased`}>
+					{children}
+					<Toaster />
+				</body>
+			</SessionProvider>
+		</html>
+	)
+}
 
 export default RootLayout
