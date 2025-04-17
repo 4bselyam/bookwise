@@ -14,27 +14,27 @@ export const navigationLinks = [
 
 export const adminSideBarLinks = [
 	{
-		img: '/icons/admin/home.svg',
+		img: '/icons/administrator/home.svg',
 		route: '/admin',
 		text: 'Home',
 	},
 	{
-		img: '/icons/admin/users.svg',
+		img: '/icons/administrator/users.svg',
 		route: '/admin/users',
 		text: 'All Users',
 	},
 	{
-		img: '/icons/admin/book.svg',
+		img: '/icons/administrator/book.svg',
 		route: '/admin/books',
 		text: 'All Books',
 	},
 	{
-		img: '/icons/admin/bookmark.svg',
+		img: '/icons/administrator/bookmark.svg',
 		route: '/admin/book-requests',
 		text: 'Borrow Requests',
 	},
 	{
-		img: '/icons/admin/user.svg',
+		img: '/icons/administrator/user.svg',
 		route: '/admin/account-requests',
 		text: 'Account Requests',
 	},
