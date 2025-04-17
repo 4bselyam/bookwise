@@ -9,7 +9,8 @@
 		"lint": "next lint",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "drizzle-kit migrate",
-		"db:studio": "drizzle-kit studio"
+		"db:studio": "drizzle-kit studio",
+		"db:seed": "npx tsx database/seed.ts"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.0.1",
